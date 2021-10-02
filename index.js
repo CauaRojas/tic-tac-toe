@@ -45,6 +45,25 @@ const fnJoga = (oBotao) => {
 		alert('A partida vai ser reiniciada');
 		document.location.reload(false);
 	}
+	if (fnVelha()) {
+		alert('Ahhhh que pena!');
+		alert('O jogo deu velha');
+		alert('A partida vai ser reiniciada');
+		document.location.reload(false);
+	}
+};
+const fnVelha = () => {
+	let bVelha = true
+	aPosicoes[0].forEach((item) => {
+		if (item == '') bVelha = false;
+	});
+	aPosicoes[1].forEach((item) => {
+		if (item == '') bVelha = false;
+	});
+	aPosicoes[2].forEach((item) => {
+		if (item == '') bVelha = false;
+	});
+	return bVelha
 };
 const fnCheca = () => {
 	let pos1 = '',
