@@ -1,0 +1,62 @@
+* {
+	font-family: sans-serif;
+}
+@keyframes animBack {
+	from {
+		background-color: #302f2f;
+	}
+	to {
+		background-color: #5c5b5b;
+	}
+}
+body {
+	flex-direction: column;
+	display: flex;
+	align-items: center;
+	animation: animBack 3s infinite alternate;
+}
+p {
+	margin: 0;
+	font-size: 24px;
+	color: #fff;
+	font-weight: bold;
+	margin-bottom: 6px;
+}
+button {
+	opacity: 90%;
+}
+main {
+	display: flex;
+	width: 100%;
+	height: 70vh;
+	align-items: center;
+	justify-content: center;
+}
+nav {
+	display: grid;
+	grid-template-columns: 100px 100px 100px;
+	grid-template-rows: 100px 100px 100px;
+	border-collapse: collapse;
+}
+#btnInicio {
+	font-size: 28px;
+	transition: 0.5s;
+}
+#btnInicio:hover {
+	font-size: 30px;
+}
+.limpo,
+.jogado {
+	font-size: 42px;
+	margin: 0;
+	border-radius: 0;
+	border-collapse: collapse;
+	transition: 500ms;
+}
+.limpo:hover {
+	background-color: #45e453;
+}
+.jogado:hover {
+	font-size: 48px;
+	background-color: #ec231c;
+}
