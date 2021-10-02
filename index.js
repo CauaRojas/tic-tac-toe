@@ -42,18 +42,23 @@ const fnJoga = (oBotao) => {
 	if (fnCheca()) {
 		if (!bSimbol) alert("Parabens o Jogador 'X' Ganhou!");
 		else alert("Parabens o Jogador 'O' Ganhou!");
-		alert('A partida vai ser reiniciada');
-		document.location.reload(false);
+		alert('A partida vai pode reiniciada');
+		document.getElementById('btnInicio').innerText = 'Reiniciar Partida';
+		document
+			.getElementById('btnInicio')
+			.addEventListener('click', () => document.location.reload(false));
 	}
 	if (fnVelha()) {
-		alert('Ahhhh que pena!');
-		alert('O jogo deu velha');
-		alert('A partida vai ser reiniciada');
-		document.location.reload(false);
+		alert('Ahhhh que pena! O jogo deu velha');
+		alert('A partida vai pode reiniciada');
+		document.getElementById('btnInicio').innerText = 'Reiniciar Partida';
+		document
+			.getElementById('btnInicio')
+			.addEventListener('click', () => document.location.reload(false));
 	}
 };
 const fnVelha = () => {
-	let bVelha = true
+	let bVelha = true;
 	aPosicoes[0].forEach((item) => {
 		if (item == '') bVelha = false;
 	});
@@ -63,7 +68,7 @@ const fnVelha = () => {
 	aPosicoes[2].forEach((item) => {
 		if (item == '') bVelha = false;
 	});
-	return bVelha
+	return bVelha;
 };
 const fnCheca = () => {
 	let pos1 = '',
@@ -72,6 +77,7 @@ const fnCheca = () => {
 	for (let i = 0; i < 9; i++) {
 		if (pos1 !== '' && pos1 == pos2 && pos2 == pos3) {
 			console.log(i);
+			//fnGanhou(i);
 			return true;
 		}
 		switch (i) {
@@ -119,6 +125,55 @@ const fnCheca = () => {
 				pos1 = '';
 				pos2 = '';
 				pos3 = '';
+				break;
+		}
+	}
+	function fnGanhou(nCaso) {
+		if (nCaso % 2 == 1) nCaso += 1;
+		else nCaso -= 1;
+		console.log(nCaso);
+		switch (nCaso) {
+			case 0:
+				aBotoes[0][0].className += ' ganhou';
+				aBotoes[1][0].className += ' ganhou';
+				aBotoes[2][0].className += ' ganhou';
+				break;
+			case 1:
+				aBotoes[0][0].className += ' ganhou';
+				aBotoes[0][1].className += ' ganhou';
+				aBotoes[0][2].className += ' ganhou';
+				break;
+			case 2:
+				aBotoes[1][0].className += ' ganhou';
+				aBotoes[1][1].className += ' ganhou';
+				aBotoes[1][2].className += ' ganhou';
+				break;
+			case 3:
+				aBotoes[0][1].className += ' ganhou';
+				aBotoes[1][1].className += ' ganhou';
+				aBotoes[2][1].className += ' ganhou';
+				break;
+			case 4:
+				aBotoes[2][0].className += ' ganhou';
+				aBotoes[2][1].className += ' ganhou';
+				aBotoes[2][2].className += ' ganhou';
+				break;
+			case 5:
+				aBotoes[0][2].className += ' ganhou';
+				aBotoes[1][2].className += ' ganhou';
+				aBotoes[2][2].className += ' ganhou';
+				break;
+			case 6:
+				aBotoes[0][0].className += ' ganhou';
+				aBotoes[1][1].className += ' ganhou';
+				aBotoes[2][2].className += ' ganhou';
+				break;
+			case 7:
+				aBotoes[0][2].className += ' ganhou';
+				aBotoes[1][1].className += ' ganhou';
+				aBotoes[2][0].className += ' ganhou';
+				break;
+			default:
 				break;
 		}
 	}
